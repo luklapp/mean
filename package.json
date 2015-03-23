@@ -1,0 +1,52 @@
+{
+  "name": "MEAN",
+  "version": "0.0.1",
+  "description": "A basic MEAN setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "setup": "mkdir -p ./dist/public/scripts && mkdir -p ./dist/public/styles",
+    "copy": "cp app/index.js ./dist/index.js",
+    "watch:scripts": "watchify ./app/public/scripts/app.js -o ./dist/public/scripts/app.js",
+    "watch:styles": "watch ./app/public/styles ./dist/public/styles",
+    "watch": "npm run setup && npm run watch:scripts & npm run watch:styles",
+    "start": "npm run watch"
+  },
+  "browserify": {
+    "transform": [
+      "hintify",
+      "uglifyify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eliias/mean.git"
+  },
+  "keywords": [
+    "MEAN"
+  ],
+  "author": "Hannes Moser <hannes@impossiblearts.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliias/mean/issues"
+  },
+  "homepage": "https://github.com/eliias/mean",
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "compression": "^1.4.3",
+    "grunt": "^0.4.5",
+    "hintify": "^0.1.0",
+    "jquery": "^2.1.3",
+    "jshint": "^2.6.3",
+    "morgan": "^1.5.2",
+    "nodemon": "^1.3.7",
+    "uglifyify": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.12.3",
+    "jade": "^1.9.2",
+    "mocha": "^2.2.1",
+    "should": "^5.2.0",
+    "socket.io": "^1.3.5"
+  }
+}
